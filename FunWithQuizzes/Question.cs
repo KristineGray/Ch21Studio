@@ -10,6 +10,7 @@ namespace FunWithQuizzes
     {
         private int _id;
         private static int QuestID = 0;
+        public int totalScore;
 
         public int ID { get { return _id; } }
         public string QuestionType { get; set; }
@@ -49,7 +50,7 @@ namespace FunWithQuizzes
                 Console.WriteLine(CorrectAnswer['A']);
             }
         }
-        public Dictionary<char, string> GetCorrectAnswer()
+        public Dictionary<char, string> GetCorrectAnswer(List<char> userAnswers)
         {
             return CorrectAnswer;
         }
