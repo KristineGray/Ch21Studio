@@ -6,10 +6,22 @@ namespace TestQuizzes
     [TestClass]
     public class UnitTest1
     {
+        /*
         [TestMethod]
-        public void EmptyTestMethod1()
+        public void TestQuestionID()
         {
-            Assert.IsTrue(5 == 5);
+            Question testQuestionOne = new Question();
+            Question testQuestionTwo = new Question();
+            Question testQuestionThree = new Question();
+            Assert.AreEqual(1, testQuestionOne.ID);
+            Assert.AreEqual(2, testQuestionTwo.ID);
+            Assert.AreEqual(3, testQuestionThree.ID);
+            Assert.IsFalse(testQuestionOne.ID == testQuestionTwo.ID);
+        }
+        */
+        public void TestTrueOrFalseID()
+        {
+
         }
     }
 }
