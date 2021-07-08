@@ -25,7 +25,7 @@ namespace TestQuizzes
         {
             TrueOrFalse testTFOne = new TrueOrFalse();
             TrueOrFalse testTFTwo = new TrueOrFalse();
-            Assert.AreEqual(5, testTFTwo.ID);
+            Assert.AreEqual(8, testTFTwo.ID);
         }
         [TestMethod]
         public void TestTrueOrFalsePromptQuestion()
@@ -61,5 +61,23 @@ namespace TestQuizzes
             Assert.AreEqual(1, testCBTwo.GradeQuestion());
         }
         
+        [TestMethod]
+        public void TestMCType()
+        {
+            MultipleChoice testMCOne = new MultipleChoice("Test", new Dictionary<char, string>(), new Dictionary<char, string>());
+            Assert.AreEqual("Multiple Choice", testMCOne.QuestionType);
+        }
+
+        [TestMethod]
+        public void TestMCGradeQuestion()
+        {
+            Dictionary<char, string> testPossAnswers = new Dictionary<char, string> { { 'A', "I don't have a cat" }, { 'B', "Black" }, { 'C', "Orange" }, { 'D', "Which one?" } };
+            MultipleChoice testMCTwo = new MultipleChoice("What color is your cat?", new Dictionary<char, string> { { 'A', "I don't have a cat"} }, testPossAnswers);
+            MultipleChoice testMCThree = new MultipleChoice("What color is an orange?", new Dictionary<char, string> { { 'C', "Orange"} }, testPossAnswers);
+            testMCTwo.GetCorrectAnswer();
+            testMCThree.GetCorrectAnswer();
+            Assert.AreEqual(0, testMCTwo.GradeQuestion());
+            Assert.AreNotEqual(1, testMCThree.GradeQuestion());
+        }
     }
 }

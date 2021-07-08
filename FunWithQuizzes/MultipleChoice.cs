@@ -6,7 +6,50 @@ using System.Threading.Tasks;
 
 namespace FunWithQuizzes
 {
-    class MultipleChoice
+    public class MultipleChoice : Question
     {
+        public List<char> possibleAnswersKey = new List<char>();
+        public char userAnswer;
+        public int score;
+
+        public MultipleChoice() { }
+        public MultipleChoice(string questionPrompt, Dictionary<char, string> correctAnswer, Dictionary<char, string> possibleAnswers)
+        {
+            this.QuestionType = "Multiple Choice";
+            this.Prompt = questionPrompt;
+            this.CorrectAnswer = correctAnswer;
+            this.PossibleAnswers = possibleAnswers;
+            foreach (KeyValuePair<char, string> answer in PossibleAnswers)
+            {
+                possibleAnswersKey.Add(answer.Key);
+            }
+        }
+
+        public void GetUserAnswer()
+        {/*
+            char userInputChar;
+            Console.WriteLine($"Select one of the possible choices: {possibleAnswersKey}");
+            string userInput = Console.ReadLine().ToUpper();
+            while (!char.TryParse(userInput, out userInputChar))
+            {
+                Console.WriteLine("Enter a valid character");
+                GetUserAnswer();
+            }
+            userInputChar = char.Parse(userInput);
+            while (!possibleAnswersKey.Contains(userInputChar))
+            {
+                Console.WriteLine("Select a valid character.");
+                GetUserAnswer();
+            }
+            userAnswer = userInputChar;
+            */
+            userAnswer = 'A';
+        }
+
+        public override int GradeQuestion()
+        {
+            if (this.CorrectAnswer.ContainsKey(userAnswer)) score++;
+            return score;
+        }
     }
 }
