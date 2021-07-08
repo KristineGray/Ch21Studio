@@ -10,6 +10,7 @@ namespace FunWithQuizzes
     {
         string userAnswer;
         public int score;
+
         public TrueOrFalse() { }
         public TrueOrFalse(string questionPrompt, Dictionary<char, string> correctAnswer, string questionType="True/False")
         {

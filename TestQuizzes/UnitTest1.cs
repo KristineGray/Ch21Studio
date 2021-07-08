@@ -25,10 +25,10 @@ namespace TestQuizzes
         {
             TrueOrFalse testTFOne = new TrueOrFalse();
             TrueOrFalse testTFTwo = new TrueOrFalse();
-            Assert.AreEqual(3, testTFTwo.ID);
+            Assert.AreEqual(5, testTFTwo.ID);
         }
         [TestMethod]
-        public void TestTrueOrFalsePrintQuestion()
+        public void TestTrueOrFalsePromptQuestion()
         {
             Assert.AreEqual("Is this a test?", new TrueOrFalse("Is this a test?", new Dictionary<char, string> { { 'A', "true" } }).Prompt);
         }
@@ -40,5 +40,26 @@ namespace TestQuizzes
             testTFThree.GetUserAnswer();
             Assert.AreEqual(0, testTFThree.score);
         }
+
+        [TestMethod]
+        public void TestCheckboxPossibleAnswers()
+        {
+            Dictionary<char, string> testPossibleAnswers = new Dictionary<char, string> { { 'A', "One" }, { 'B', "Two" }, { 'C', "Three" }, { 'D', "Four" } };
+            Checkbox testCBOne = new Checkbox("Which of the below are even numbers between 1 and 5?", new Dictionary<char, string> { { 'B', "Two"}, { 'D', "Four" } }, testPossibleAnswers);
+            foreach (KeyValuePair<char, string> answer in testCBOne.PossibleAnswers)
+            {
+                Assert.AreEqual(testPossibleAnswers[answer.Key], answer.Value);
+            }
+        }
+        
+        [TestMethod]
+        public void TestCheckboxGradeQuestion()
+        {
+            Dictionary<char, string> testPossibleAnswers = new Dictionary<char, string> { { 'A', "One" }, { 'B', "Two" }, { 'C', "Three" }, { 'D', "Four" } };
+            Checkbox testCBTwo = new Checkbox("What is the number between 1 and 3?", new Dictionary<char, string> { { 'B', "Two"} }, testPossibleAnswers);
+            testCBTwo.GetUserAnswer();
+            Assert.AreEqual(1, testCBTwo.GradeQuestion());
+        }
+        
     }
 }

@@ -50,7 +50,7 @@ namespace FunWithQuizzes
                 Console.WriteLine(CorrectAnswer['A']);
             }
         }
-        public Dictionary<char, string> GetCorrectAnswer(List<char> userAnswers)
+        public Dictionary<char, string> GetCorrectAnswer()
         {
             return CorrectAnswer;
         }
