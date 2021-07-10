@@ -25,7 +25,7 @@ namespace FunWithQuizzes
             }
         }
 
-        public void GetUserAnswer()
+        public override void GetUserAnswer()
         {
             char userInputChar;
             Console.WriteLine($"Select one of the possible choices: {possibleAnswersKey}");

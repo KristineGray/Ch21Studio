@@ -57,5 +57,6 @@ namespace FunWithQuizzes
             return CorrectAnswer;
         }
         public abstract int GradeQuestion();
+        public abstract void GetUserAnswer();
     }
 }

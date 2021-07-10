@@ -24,7 +24,7 @@ namespace FunWithQuizzes
                 this.possibleAnswersKey.Add(answer.Key);
             }
         }
-        public void GetUserAnswer()
+        public override void GetUserAnswer()
         {
             Console.WriteLine("Select one of the possible choices:");
             PrintAnswerList(possibleAnswersKey);
