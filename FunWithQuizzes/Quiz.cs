@@ -35,7 +35,13 @@ namespace FunWithQuizzes
         {
             Console.Clear();
             Console.WriteLine("1 - See current list of questions\n2 - Add a question\n3 - Remove a question\n4 - Run the quiz");
-            int userSelection = int.Parse(Console.ReadLine());
+            string selectionString = Console.ReadLine();
+            while (!int.TryParse(selectionString, out _))
+            {
+                Console.WriteLine("Please enter a number 1-4");
+                selectionString = Console.ReadLine();
+            }
+            int userSelection = int.Parse(selectionString);
             switch (userSelection)
             {
                 case 1:
@@ -216,8 +222,18 @@ namespace FunWithQuizzes
 
         public void GradeQuiz()
         {
+            Console.Clear();
             gradePercentage = (totalScore / maxScore) * 100;
-            Console.WriteLine($"Grade: {gradePercentage}%. You earned {totalScore} out of {maxScore} points.");
+            Console.WriteLine("\n\n===== FEEDBACK =====");
+            Console.WriteLine($"\nGrade: {gradePercentage}%. You earned {totalScore} out of {maxScore} points.");
+            foreach (Question question in Questions)
+            {
+                Console.WriteLine();
+                Console.WriteLine(question.Prompt);
+                question.PrintCorrectAnswer();
+                question.PrintUserAnswers();
+                Console.WriteLine("\n---------------");
+            }
         }
 
         public void PressToContinue()

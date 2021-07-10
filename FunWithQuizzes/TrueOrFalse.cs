@@ -58,5 +58,9 @@ namespace FunWithQuizzes
             }
             return score;
         }
+        public override void PrintUserAnswers()
+        {
+            Console.WriteLine($"\nYour answer: {userAnswer}");
+        }
     }
 }

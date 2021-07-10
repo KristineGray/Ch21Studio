@@ -40,16 +40,9 @@ namespace FunWithQuizzes
         public void PrintCorrectAnswer()
         {
             Console.WriteLine("Correct answer(s):");
-            if (CorrectAnswer.Count > 1)
+            foreach (KeyValuePair<char, string> answer in CorrectAnswer)
             {
-                foreach (KeyValuePair<char, string> answer in CorrectAnswer)
-                {
-                   Console.WriteLine($"{answer.Key}. {answer.Value}");
-                }
-            }
-            else
-            {
-                Console.WriteLine(CorrectAnswer['A']);
+                Console.WriteLine($"{answer.Key}. {answer.Value}");
             }
         }
         public Dictionary<char, string> GetCorrectAnswer()
@@ -58,5 +51,6 @@ namespace FunWithQuizzes
         }
         public abstract int GradeQuestion();
         public abstract void GetUserAnswer();
+        public abstract void PrintUserAnswers();
     }
 }

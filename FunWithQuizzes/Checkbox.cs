@@ -61,5 +61,20 @@ namespace FunWithQuizzes
             }
             return score;
         }
+        public override void PrintUserAnswers()
+        {
+            if (userAnswers.Count != 1)
+            {
+                Console.WriteLine("\nYour answers:");
+                foreach (char answer in userAnswers)
+                {
+                    Console.Write($"{answer} ");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"\nYour answer: {userAnswers[0]}");
+            }
+        }
     }
 }

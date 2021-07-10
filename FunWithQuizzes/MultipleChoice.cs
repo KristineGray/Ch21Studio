@@ -51,5 +51,9 @@ namespace FunWithQuizzes
             if (this.CorrectAnswer.ContainsKey(this.userAnswer)) this.score++;
             return score;
         }
+        public override void PrintUserAnswers()
+        {
+            Console.WriteLine($"\nYour answer: {userAnswer}");
+        }
     }
 }
