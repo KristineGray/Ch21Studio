@@ -13,9 +13,9 @@ namespace FunWithQuizzes
         public int score;
 
         public TrueOrFalse() { }
-        public TrueOrFalse(string questionPrompt, Dictionary<char, string> correctAnswer, string questionType="True/False")
+        public TrueOrFalse(string questionPrompt, Dictionary<char, string> correctAnswer)
         {
-            this.QuestionType = questionType;
+            this.QuestionType = "True/False";
             this.Prompt = questionPrompt;
             this.CorrectAnswer = correctAnswer;
             this.PossibleAnswers = new Dictionary<char, string> { {'A', "true" }, {'B', "false" } };
