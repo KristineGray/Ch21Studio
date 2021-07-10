@@ -26,7 +26,7 @@ namespace FunWithQuizzes
 
         public void PrintQuestion()
         {
-            Console.WriteLine($"{this.ID}: {this.Prompt}");
+            Console.WriteLine($"{ID}: {Prompt}");
             PrintPossibleAnswers();
             Console.WriteLine();
         }
