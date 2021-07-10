@@ -42,7 +42,6 @@ namespace FunWithQuizzes
                 GetUserAnswer();
             }
             userAnswer = userInputChar;
-            //userAnswer = ValidateInputChar(userInput);
         }
         public void PrintAnswerList(List<char> answerList)
         {

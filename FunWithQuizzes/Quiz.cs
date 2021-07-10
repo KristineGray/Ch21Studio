@@ -11,8 +11,8 @@ namespace FunWithQuizzes
         public List<Question> Questions = new List<Question>();
         //List<Question> defaultQs = new List<Question> {new TrueOrFalse("Is H2O water?", new Dictionary<char, string> { {'A', "true"} }), new MultipleChoice("What is the square root of 4?", new Dictionary<char, string> { { 'B', "Two"} }, new Dictionary<char, string> { { 'A', "One"}, { 'B', "Two"}, { 'C', "Three"}, { 'D', "Four"} }), new Checkbox("Which word(s) is an animal?", new Dictionary<char, string> {{ 'A', "Cat"}, { 'B', "Dog"}, { 'D', "Mouse"} }, new Dictionary<char, string> { { 'A', "Cat"}, { 'B', "Dog"}, { 'C', "Box"}, { 'D', "Mouse"}, { 'E', "Coffee"} })};
         
-        public int totalScore;
-        public int maxScore;
+        public double totalScore;
+        public double maxScore;
         public double gradePercentage;
 
 
@@ -217,7 +217,7 @@ namespace FunWithQuizzes
         public void GradeQuiz()
         {
             gradePercentage = (totalScore / maxScore) * 100;
-            Console.WriteLine($"Grade: {Math.Round(gradePercentage, 2)}%. You earned {totalScore} out of {maxScore} points.");
+            Console.WriteLine($"Grade: {gradePercentage}%. You earned {totalScore} out of {maxScore} points.");
         }
 
         public void PressToContinue()
