@@ -58,7 +58,7 @@ namespace FunWithQuizzes
         {
             Console.Clear();
             Console.WriteLine("Which type of question would you like to add?");
-            Console.WriteLine("1. True/False\n2. Checkbox\n3. Multiple Choice");
+            Console.WriteLine("1. True or False\n2. Checkbox\n3. Multiple Choice");
             string userInput = Console.ReadLine();
             int userChoice;
             while (!int.TryParse(userInput, out userChoice))

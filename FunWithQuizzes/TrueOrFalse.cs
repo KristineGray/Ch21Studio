@@ -15,7 +15,7 @@ namespace FunWithQuizzes
         public TrueOrFalse() { }
         public TrueOrFalse(string questionPrompt, Dictionary<char, string> correctAnswer)
         {
-            this.QuestionType = "True/False";
+            this.QuestionType = "True Or False";
             this.Prompt = questionPrompt;
             this.CorrectAnswer = correctAnswer;
             this.PossibleAnswers = new Dictionary<char, string> { {'A', "true" }, {'B', "false" } };
@@ -25,42 +25,39 @@ namespace FunWithQuizzes
             }
         }
         public void GetUserAnswer()
-
         {
-            /*
-            Console.WriteLine("Enter A or B");
-            string userInput = Console.ReadLine();
-            this.userAnswer = userInput.ToUpper();
-            */
-            char userInputChar;
-            Console.WriteLine($"Select one of the possible choices: {possibleAnswersKey}");
+            Console.WriteLine("Select one of the possible choices:");
+            PrintAnswerList(possibleAnswersKey);
             string userInput = Console.ReadLine().ToUpper();
+            char userInputChar;
             while (!char.TryParse(userInput, out userInputChar))
             {
                 Console.WriteLine("Enter a valid character");
-                this.GetUserAnswer();
+                GetUserAnswer();
             }
             userInputChar = char.Parse(userInput);
-            while (!this.possibleAnswersKey.Contains(userInputChar))
+            while (!possibleAnswersKey.Contains(userInputChar))
             {
                 Console.WriteLine("Select a valid character.");
-                this.GetUserAnswer();
+                GetUserAnswer();
             }
-            this.userAnswer = userInputChar;
+            userAnswer = userInputChar;
+            //userAnswer = ValidateInputChar(userInput);
+        }
+        public void PrintAnswerList(List<char> answerList)
+        {
+            foreach (char answer in answerList)
+            {
+                Console.WriteLine(answer);
+            }
         }
         public override int GradeQuestion()
         {
-            if (this.CorrectAnswer.ContainsKey(this.userAnswer)) this.score++;
-            return score;
-            /*
-            this.userCharAnswer = char.Parse(userAnswer);
-            foreach (KeyValuePair<char, string> correct in CorrectAnswer)
+            if (CorrectAnswer.ContainsKey(userAnswer))
             {
-                if (this.userCharAnswer == correct.Key) 
-                    this.score++;
+                score++;
             }
-            return this.score;
-            */
+            return score;
         }
     }
 }
