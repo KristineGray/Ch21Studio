@@ -21,34 +21,34 @@ namespace FunWithQuizzes
             this.PossibleAnswers = possibleAnswers;
             foreach (KeyValuePair<char, string> answer in PossibleAnswers)
             {
-                possibleAnswersKey.Add(answer.Key);
+                this.possibleAnswersKey.Add(answer.Key);
             }
         }
 
         public void GetUserAnswer()
-        {/*
+        {
             char userInputChar;
             Console.WriteLine($"Select one of the possible choices: {possibleAnswersKey}");
             string userInput = Console.ReadLine().ToUpper();
             while (!char.TryParse(userInput, out userInputChar))
             {
                 Console.WriteLine("Enter a valid character");
-                GetUserAnswer();
+                this.GetUserAnswer();
             }
             userInputChar = char.Parse(userInput);
-            while (!possibleAnswersKey.Contains(userInputChar))
+            while (!this.possibleAnswersKey.Contains(userInputChar))
             {
                 Console.WriteLine("Select a valid character.");
-                GetUserAnswer();
+                this.GetUserAnswer();
             }
-            userAnswer = userInputChar;
-            */
-            userAnswer = 'A';
+            this.userAnswer = userInputChar;
+            
+            //userAnswer = 'A';
         }
 
         public override int GradeQuestion()
         {
-            if (this.CorrectAnswer.ContainsKey(userAnswer)) score++;
+            if (this.CorrectAnswer.ContainsKey(this.userAnswer)) this.score++;
             return score;
         }
     }

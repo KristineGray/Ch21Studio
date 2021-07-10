@@ -25,7 +25,7 @@ namespace FunWithQuizzes
         }
         
         public void GetUserAnswer()
-        {/*
+        {
             char userInputChar;
             Console.WriteLine($"Select one of the possible choices: {possibleAnswersKey}");
             string userInput = Console.ReadLine().ToUpper();
@@ -50,8 +50,8 @@ namespace FunWithQuizzes
             {
                 GetUserAnswer();
             }
-            */
-            userAnswers.Add('B');
+            
+            //userAnswers.Add('B');
         }
         public override int GradeQuestion()
         {

@@ -20,6 +20,7 @@ namespace TestQuizzes
             Assert.IsFalse(testQuestionOne.ID == testQuestionTwo.ID);
         }
         */
+        
         [TestMethod] //Gotta watch which order in testing playlist this one is
         public void TestTrueOrFalseID()
         {
@@ -27,6 +28,7 @@ namespace TestQuizzes
             TrueOrFalse testTFTwo = new TrueOrFalse();
             Assert.AreEqual(8, testTFTwo.ID);
         }
+        
         [TestMethod]
         public void TestTrueOrFalsePromptQuestion()
         {
@@ -79,5 +81,38 @@ namespace TestQuizzes
             Assert.AreEqual(0, testMCTwo.GradeQuestion());
             Assert.AreNotEqual(1, testMCThree.GradeQuestion());
         }
+
+        [TestMethod]
+        public void TestQuizFields()
+        {
+            Quiz testQuizOne = new Quiz();
+            Assert.IsNotNull(testQuizOne.Questions);
+            Assert.AreEqual(5, testQuizOne.maxScore);
+        }
+
+        [TestMethod]
+        public void TestQuizAddQuestion()
+        {
+            Quiz testQuizTwo = new Quiz();
+            testQuizTwo.AddQuestion();
+            Assert.IsTrue(3 == testQuizTwo.Questions.Count);
+        }
+        
+        [TestMethod]
+        public void TestQuizRemoveQuestion()
+        {
+            Quiz testQuizThree = new Quiz();
+            testQuizThree.RemoveQuestion();
+            Assert.IsTrue(2 == testQuizThree.Questions.Count);
+        }
+        
+        [TestMethod]
+        public void TestQuizRunQuiz()
+        {
+            Quiz testQuizFour = new Quiz();
+            testQuizFour.RunQuiz();
+            Assert.AreEqual(5, testQuizFour.score);
+        }
+
     }
 }
